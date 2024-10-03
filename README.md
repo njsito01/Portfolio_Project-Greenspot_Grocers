@@ -17,15 +17,9 @@ Original project and data can be found on [Coursera](https://www.coursera.org/pr
 ## Objectives
 
 
-
-
-Examine the current data and reorganize it into relational tables using the modeling tool in MySQL Workbench.
-
-
-Create and load the database with the sample data provided.
-
-
-Test the database design and verify the design by generating SQL JOIN queries.
+1. Examine the current data and reorganize it into relational tables using the modeling tool in MySQL Workbench.
+2. Create and load the database with the sample data provided.
+3. Test the database design and verify the design by generating SQL JOIN queries.
 
 
 ## Approach
@@ -39,14 +33,8 @@ I began this project by reviewing the original spreadsheet to determine how the 
 I decided to categorize the data into 4 tables:
 
 - items - data pertaining to the products themselves, including the item reference number, descriptions, type of goods, inventory location, sale unit, and a vendor ID for where the product is sourced from
-
-
 - sales - data describing individual sales, including a transaction number, customer ID, item reference number, date of sale, quantity of the item sold, the price per unit, and transaction type
-
-
 - purchases - data regarding individual purchases for sourcing inventory, including a transaction reference number, vendor ID that the items were purchased from, item reference number, date of purchase, quantity purchased, cost per unit, and transaction type
-
-
 - vendor - data about the vendors, including the vendor ID number, vendor name, and location information like address, city, state, and zip.
 
 
@@ -57,7 +45,7 @@ My next step was to model and build out an EER Diagram using MySQL Workbench. By
 
 
 
-
+![Entity Relationship Diagram](/GreenspotEER.png)
 
 
 
@@ -103,7 +91,7 @@ JOIN vendors v
 The above query produced this result:
 
 
-
+![Result of query to pull all data from the database](/GS_Full_Query.png)
 
 
 
@@ -112,22 +100,9 @@ The above query produced this result:
 
 To further test the database, I asked three questions to determine if the structure is applicable to potential business needs:
 
-
-
-
-
-
-
 1. What are the best selling item types, by volume and by revenue?
-
-
-
 2. Which vendor's products sell the most, by volume and revenue?
-
-
-
 3. Which products from each vendor have the highest profit margin?
-
 
 
 ### What are the best selling item types, by volume and by revenue?
