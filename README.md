@@ -10,7 +10,7 @@ Greenspot Grocer is a small, family-owned online grocery store. Their current pr
 
 
 
-Original project and data can be found on Coursera
+Original project and data can be found on [Coursera](https://www.coursera.org/projects/showcase-manage-data-online-grocer-mysql-workbench)
 
 
 
