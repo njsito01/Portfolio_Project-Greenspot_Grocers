@@ -151,63 +151,11 @@ ORDER BY i.item_type
 
 Results:
 
-
-
-
-
-
-
-item_type 
-
-
-
-total_qty_sold
-
-
-
-total_revenue
-
-
-
-
-
-Canned
-
-
-
-39
-
-
-
-66.19
-
-
-
-
-
-Dairy
-
-
-
-8
-
-
-
-44.92
-
-
-
-
-
-Produce
-
-
-
-17
-
-
-
-106.83
+|item_type|total_qty_sold|total_revenue|
+|:---:|:---:|:---:|
+|Canned|39|66.19|
+|Dairy|8|44.92|
+|Produce|17|106.83|
 
 
 
@@ -248,64 +196,11 @@ WHERE (vendor_name, total_qty_sold) IN
 
 Results:
 
-
-
-
-
-
-
-vendor_name
-
-
-
-item_desc
-
-
-
-total_qty_sold
-
-
-
-
-
-Bennet Farms
-
-
-
-Bennet Farms free-range eggs
-
-
-
-8
-
-
-
-
-
-Freshness, Inc.
-
-
-
-Freshness White beans
-
-
-
-14
-
-
-
-
-
-Ruby Redd Produce, LLC
-
-
-
-Ruby's Organic Kale
-
-
-
-13
-
+|vendor_name|item_desc|total_qty_sold|
+|:---:|:---:|:---:|
+|Bennet Farms|Bennet Farms free-range eggs|8|
+|Freshness, Inc.|Freshness White beans|14|
+|Ruby Redd Produce, LLC|Ruby's Organic Kale|13|
 
 
 By Revenue:
@@ -342,63 +237,11 @@ WHERE (vendor_name, total_revenue) IN
 
 Results:
 
-
-
-
-
-
-
-vendor_name
-
-
-
-item_desc
-
-
-
-total_revenue
-
-
-
-
-
-Bennet Farms
-
-
-
-Bennet Farm free-range eggs
-
-
-
-44.92
-
-
-
-
-
-Freshness, Inc.
-
-
-
-Freshness White beans
-
-
-
-20.86
-
-
-
-
-
-Ruby Redd Produce, LLC
-
-
-
-Ruby's Organic Kale
-
-
-
-90.87
+|vendor_name|item_desc|total_revenue|
+|:---:|:---:|:---:|
+|Bennet Farms|Bennet Farms free-range eggs|44.92|
+|Freshness, Inc.|Freshness White beans|20.86|
+|Ruby Redd Produce, LLC|Ruby's Organic Kale|90.87|
 
 
 
@@ -450,63 +293,11 @@ WHERE (vendor_name, profit_margin_per_unit) IN
 
 Results:
 
-
-
-
-
-
-
-vendor_name
-
-
-
-item_desc
-
-
-
-profit_margin_per_unit
-
-
-
-
-
-Bennet Farms
-
-
-
-Bennet Farms
-
-
-
-3.27
-
-
-
-
-
-Freshness, Inc.
-
-
-
-Freshness Green beans
-
-
-
-1.71
-
-
-
-
-
-Ruby Redd Produce, LLC
-
-
-
-Ruby's Organic Kale
-
-
-
-4.80
+|vendor_name|item_desc|profit_margin_per_unit|
+|:---:|:---:|:---:|
+|Bennet Farms|Bennet Farm free-range eggs|3.27|
+|Freshness, Inc.|Freshness Green beans|1.71|
+|Ruby Redd Produce, LLC|Ruby's Organic Kale|4.80|
 
 
 
