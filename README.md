@@ -167,7 +167,7 @@ By Volume:
 
 WITH sales_totals AS (
     SELECT
-    	v.vendor_id,
+        v.vendor_id,
         v.vendor_name,
         i.item_number,
         i.item_desc,
@@ -175,9 +175,9 @@ WITH sales_totals AS (
         SUM(s.quantity_sold * s.price_per_unit) AS total_revenue
     FROM sales s
     JOIN items i
-    	ON s.item_number = i.item_number
+        ON s.item_number = i.item_number
     JOIN vendors v
-    	ON i.vendor_id = v.vendor_id
+        ON i.vendor_id = v.vendor_id
     GROUP BY v.vendor_id, i.item_number
 )
 SELECT
@@ -186,11 +186,11 @@ SELECT
     total_qty_sold
 FROM sales_totals
 WHERE (vendor_name, total_qty_sold) IN
-		(SELECT
-			vendor_name,
-			MAX(total_qty_sold)
-		FROM sales_totals
-		GROUP BY vendor_name)
+        (SELECT
+            vendor_name,
+            MAX(total_qty_sold)
+        FROM sales_totals
+        GROUP BY vendor_name)
 ;
 ```
 
@@ -208,7 +208,7 @@ By Revenue:
 ```SQL
 WITH sales_totals AS (
 SELECT
-	v.vendor_id,
+    v.vendor_id,
     v.vendor_name,
     i.item_number,
     i.item_desc,
@@ -222,16 +222,16 @@ JOIN vendors v
 GROUP BY v.vendor_id, i.item_number
 )
 SELECT
-	vendor_name,
+    vendor_name,
     item_desc,
     total_revenue
 FROM sales_totals
 WHERE (vendor_name, total_revenue) IN
-		(SELECT
-			vendor_name,
-			MAX(total_revenue)
-		FROM sales_totals
-		GROUP BY vendor_name)
+        (SELECT
+            vendor_name,
+            MAX(total_revenue)
+        FROM sales_totals
+        GROUP BY vendor_name)
 ;
 ```
 
@@ -251,28 +251,28 @@ Results:
 WITH purchase_totals AS (
 
 SELECT
-	item_number,
-	SUM(quantity_purchased) AS volume_bought,
-	SUM(quantity_purchased * cost_per_unit) AS total_cost,
-	ROUND(SUM(quantity_purchased * cost_per_unit) / SUM(quantity_purchased), 2) AS adj_unit_cost
+    item_number,
+    SUM(quantity_purchased) AS volume_bought,
+    SUM(quantity_purchased * cost_per_unit) AS total_cost,
+    ROUND(SUM(quantity_purchased * cost_per_unit) / SUM(quantity_purchased), 2) AS adj_unit_cost
 FROM purchases
 GROUP BY item_number
 ), margins AS (
 
 SELECT
-	v.vendor_name,
-	s.item_number,
-	i.item_desc,
-	ROUND(SUM(quantity_sold * price_per_unit) / SUM(quantity_sold), 2) AS adj_unit_price,
-	pt.adj_unit_cost,
-	ROUND(SUM(quantity_sold * price_per_unit) / SUM(quantity_sold), 2) - pt.adj_unit_cost AS       profit_margin_per_unit
+    v.vendor_name,
+    s.item_number,
+    i.item_desc,
+    ROUND(SUM(quantity_sold * price_per_unit) / SUM(quantity_sold), 2) AS adj_unit_price,
+    pt.adj_unit_cost,
+    ROUND(SUM(quantity_sold * price_per_unit) / SUM(quantity_sold), 2) - pt.adj_unit_cost AS profit_margin_per_unit
 FROM sales s
 JOIN purchase_totals pt
 JOIN items i
 JOIN vendors v
-	ON s.item_number = pt.item_number
-	AND s.item_number = i.item_number
-	AND i.vendor_id = v.vendor_id
+    ON s.item_number = pt.item_number
+    AND s.item_number = i.item_number
+    AND i.vendor_id = v.vendor_id
 GROUP BY s.item_number
 )
 # items with highest margins, by vendor
@@ -283,11 +283,11 @@ SELECT
     profit_margin_per_unit
 FROM margins
 WHERE (vendor_name, profit_margin_per_unit) IN
-	(SELECT
-		vendor_name,
-    	MAX(profit_margin_per_unit)
-	FROM margins
-    GROUP BY vendor_name)
+        (SELECT
+            vendor_name,
+            MAX(profit_margin_per_unit)
+        FROM margins
+        GROUP BY vendor_name)
 ;
 ```
 
